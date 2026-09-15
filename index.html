@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tiffany Evans | Author</title>
+
+  <meta
+    name="description"
+    content="Official author page for Tiffany Evans. Explore mystery, true crime, coloring books, planners, and more."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(147, 51, 234, 0.16), transparent 28%),
+        radial-gradient(circle at 80% 20%, rgba(220, 38, 38, 0.10), transparent 30%),
+        #09090d;
+      color: #f5f5f5;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      min-height: 68vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px 55px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: rgba(128, 44, 180, 0.12);
+      filter: blur(90px);
+      top: -160px;
+      left: -130px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(185, 28, 28, 0.10);
+      filter: blur(100px);
+      right: -150px;
+      bottom: -150px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #c7a7ff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      line-height: 0.95;
+      margin-bottom: 18px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: #b9a0ff;
+      font-size: 0.42em;
+      letter-spacing: 5px;
+      margin-top: 20px;
+      text-transform: uppercase;
+    }
+
+    .hero p {
+      color: #bdbdc7;
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 25px auto 0;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 32px;
+      padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 999px;
+      color: white;
+      background: rgba(255,255,255,0.06);
+      transition: 0.25s ease;
+    }
+
+    .hero-button:hover {
+      background: white;
+      color: #111;
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       BOOKS
+    ========================== */
+
+    .books-section {
+      max-width: 1150px;
+      margin: auto;
+      padding: 75px 20px 90px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading small {
+      display: block;
+      color: #a78bfa;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .section-heading h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+    }
+
+    .section-heading p {
+      color: #aaaab5;
+      max-width: 620px;
+      margin: 10px auto 0;
+    }
+
+    .books {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .book-card {
+      background: rgba(22,22,29,0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+      box-shadow: 0 22px 55px rgba(0,0,0,0.28);
+    }
+
+    .book-card:hover {
+      transform: translateY(-7px);
+      border-color: rgba(190,166,255,0.35);
+      box-shadow: 0 28px 65px rgba(0,0,0,0.45);
+    }
+
+    .book-card.featured {
+      border-color: rgba(185, 28, 28, 0.55);
+    }
+
+    .featured-label {
+      position: absolute;
+      z-index: 4;
+      top: 30px;
+      left: 30px;
+      background: #a91019;
+      color: white;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      font-weight: bold;
+      padding: 7px 11px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.35);
+    }
+
+    .cover-wrap {
+      width: 100%;
+      aspect-ratio: 0.76;
+      overflow: hidden;
+      border-radius: 14px;
+      background: #111;
+      margin-bottom: 22px;
+    }
+
+    .cover-wrap img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .book-card:hover .cover-wrap img {
+      transform: scale(1.025);
+    }
+
+    .book-info {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      padding: 0 5px 5px;
+    }
+
+    .book-type {
+      color: #a78bfa;
+      font-size: 0.72rem;
+      font-weight: bold;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+
+    .book-info h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.55rem;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .book-info p {
+      color: #a9a9b3;
+      font-size: 0.92rem;
+      margin-bottom: 22px;
+    }
+
+    .amazon-button {
+      display: block;
+      width: 100%;
+      text-align: center;
+      margin-top: auto;
+      padding: 14px 15px;
+      border-radius: 12px;
+      color: #111;
+      background: #f3f3f3;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .amazon-button:hover {
+      background: #c7a7ff;
+      transform: translateY(-2px);
+    }
+
+    .featured .amazon-button {
+      background: #b3131c;
+      color: white;
+    }
+
+    .featured .amazon-button:hover {
+      background: #d11d28;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .about-inner {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      padding: 75px 22px;
+    }
+
+    .about-inner h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+    }
+
+    .about-inner p {
+      color: #adadb7;
+      font-size: 1rem;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      text-align: center;
+      padding: 35px 20px 45px;
+      color: #777783;
+      font-size: 0.85rem;
+    }
+
+    footer strong {
+      color: #aaaab5;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 900px) {
+      .books {
+        grid-template-columns: 1fr;
+        max-width: 470px;
+        margin: auto;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 75px;
+        padding-bottom: 65px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .cover-wrap {
+        aspect-ratio: auto;
+      }
+
+      .cover-wrap img {
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero h1 {
+        font-size: 3.4rem;
+      }
+
+      .hero h1 span {
+        font-size: 0.36em;
+      }
+
+      .books-section {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .book-card {
+        border-radius: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        Books • Mysteries • Creativity
+      </div>
+
+      <h1>
+        Tiffany Evans
+        <span>Author & Creator</span>
+      </h1>
+
+      <p>
+        Stories for mystery lovers, creative minds, and anyone whose
+        imagination refuses to stay in one genre.
+      </p>
+
+      <a href="#books" class="hero-button">
+        Explore My Books ↓
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- BOOKS -->
+  <main id="books" class="books-section">
+
+    <div class="section-heading">
+
+      <small>From My Bookshelf</small>
+
+      <h2>Explore My Books</h2>
+
+      <p>
+        Dark mysteries, true-crime creativity, and a little productive chaos.
+        Choose your next read—or your next side quest.
+      </p>
+
+    </div>
+
+
+    <div class="books">
+
+      <!-- ========================================
+           SHADES OF EVIDENCE
+      ========================================= -->
+
+      <article class="book-card featured">
+
+        <div class="featured-label">
+          New Release
+        </div>
+
+        <div class="cover-wrap">
+
+          <img
+            src="images/shades-of-evidence.png"
+            alt="Shades of Evidence: A True Crime Coloring Book by Tiffany Evans"
+          >
+
+        </div>
+
+        <div class="book-info">
+
+          <div class="book-type">
+            True Crime • Adult Coloring
+          </div>
+
+          <h3>
+            Shades of Evidence
+          </h3>
+
+          <p>
+            A true-crime coloring book featuring 25 infamous cases,
+            unsolved mysteries, historic investigations, and detailed
+            illustrations inspired by the evidence and stories that
+            continue to fascinate true-crime fans.
+          </p>
+
+          <a
+            class="amazon-button"
+            href="https://a.co/d/00Xn5jdk"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on Amazon →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- ========================================
+           THE HOUSE THAT DIDN'T BURN
+      ========================================= -->
+
+      <article class="book-card">
+
+        <div class="cover-wrap">
+
+          <img
+            src="images/house-that-didnt-burn.png"
+            alt="The House That Didn't Burn by Tiffany Evans"
+          >
+
+        </div>
+
+        <div class="book-info">
+
+          <div class="book-type">
+            Dark Mystery • Fiction
+          </div>
+
+          <h3>
+            The House That Didn't Burn
+          </h3>
+
+          <p>
+            A dark Dahlia Renwick mystery where an old house, a haunting
+            VHS tape, and secrets buried in the past pull a new investigation
+            into something that refuses to stay forgotten.
+          </p>
+
+          <a
+            class="amazon-button"
+            href="https://a.co/d/0iu0UVVv"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on Amazon →
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- ========================================
+           MY BRAIN HAS SIDE QUESTS
+      ========================================= -->
+
+      <article class="book-card">
+
+        <div class="cover-wrap">
+
+          <img
+            src="images/my-brain-has-side-quests.png"
+            alt="My Brain Has Side Quests by Tiffany Evans"
+          >
+
+        </div>
+
+        <div class="book-info">
+
+          <div class="book-type">
+            Life • Money • Gamified Planner
+          </div>
+
+          <h3>
+            My Brain Has Side Quests
+          </h3>
+
+          <p>
+            A colorful gamified life and money planner made for chaotic
+            brains—featuring side quests, XP, boss battles, money challenges,
+            resets, rewards, and plenty of room to make progress your way.
+          </p>
+
+          <a
+            class="amazon-button"
+            href="https://a.co/d/05lxcDsi"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View on Amazon →
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+  <!-- ABOUT -->
+  <section class="about">
+
+    <div class="about-inner">
+
+      <h2>
+        Meet Tiffany
+      </h2>
+
+      <p>
+        Tiffany Evans is an independent author and creator exploring
+        mystery, true crime, creativity, and the beautifully chaotic
+        side of everyday life. Her work ranges from dark fiction to
+        interactive books designed to turn curiosity and creativity
+        into an experience.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <strong>
+      © 2026 Tiffany Evans
+    </strong>
+
+    <br>
+
+    Independent Author & Creator
+
+  </footer>
+
+</body>
+</html>
